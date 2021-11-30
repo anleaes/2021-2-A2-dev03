@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load widget_tweaks %}
+
+{% block title %}
+    Alterar Perfil - {{ block.super }}
+{% endblock title %}
+
+
+
+{% block body %}
+    
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Alterar Perfil</h1>
+            {% if profile %}
+                <img src="{{ profile.photo.url }}" class="align-self-start mr-3 rounded-circle" width="100" height="100">
+            {% endif %}
+            <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+                <div class="form-group">
+                    <label for="{{ form.photo.id_for_label }}">Foto de Perfil</label>
+                    {{ form.photo|add_class:"form-control-file" }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.cell_phone.id_for_label }}">Celular</label>
+                    {{ form.cell_phone|add_class:"form-control" }}
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock body %}

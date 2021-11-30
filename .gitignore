@@ -1,0 +1,3 @@
+webapp/webapp/__pycache__/*
+webapp/apps/core/__pycache__/*
+webapp/apps/core/migrations/__pycache__/*

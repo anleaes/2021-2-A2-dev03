@@ -1,0 +1,56 @@
+@startuml Projeto Dualidade
+
+title Projeto Dualidade
+
+class profile{
+    - created_on: Datetime
+    - updated_on: Datetime
+    - type: String
+    - photo: Image
+    - phone: String
+    - area: String
+    - biography: String
+    - git: String
+    + construtor(photo, phone, biography, git, user)
+}
+
+class user{
+    - created_on: Datetime
+    - updated_on: Datetime
+    - name: String 
+    - email: String
+    - password: String
+    - profile: Profile
+    + construtor(name, email, password)
+}
+
+class team{
+    - created_on: Datetime
+    - updated_on: Datetime
+    - name: String
+    - owner: User
+    - user: User
+    + construtor(name, email, password, owner, user)
+}
+
+class demand{
+    - created_on: Datetime
+    - updated_on: Datetime
+    - title: String
+    - description: String
+    - deadline: Date
+    - type: String
+    - status: String
+    - file: file
+    - repository: String
+    - owner: User
+    - team: Team
+    + construtor(description,description, deadline, type, status, file, repository, owner, team)
+}
+
+demand <|-- team
+demand <|-- user
+team <|-- user
+profile *-- user
+
+@enduml
